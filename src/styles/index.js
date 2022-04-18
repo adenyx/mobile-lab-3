@@ -8,6 +8,7 @@ export const screenWidth = width;
 
 export const colors = {
   main: '#253334',
+  activeColor: '#7c9a92',
 
   grayscale: {
     0: '#FFFFFF',

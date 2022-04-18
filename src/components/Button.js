@@ -11,9 +11,9 @@ const Button = ({
   value = 'Button',
   disabled = false,
   containerStyle = {},
-  textColor = colors.white,
-  textWeight = '400',
-  textSize = 16,
+  textColor = colors.grayscale[0],
+  textWeight = '600',
+  textSize = 18,
   size = 'large',
   loading = false,
 }) => {
@@ -41,7 +41,7 @@ const getStyles = (size, textSize, textColor, textWeight) =>
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 8,
-      backgroundColor: colors.blue,
+      backgroundColor: colors.activeColor,
     },
 
     value: {

@@ -53,6 +53,13 @@ const RootStack = () => {
         component={screens.Splash}
       />
       <RootStackNav.Screen
+        name="Authorization"
+        options={{
+          headerShown: false,
+        }}
+        component={screens.Authorization}
+      />
+      <RootStackNav.Screen
         name="Main"
         options={{
           headerShown: false,
