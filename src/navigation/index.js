@@ -16,12 +16,25 @@ const TabStack = () => {
         options={{
           headerStyle: { backgroundColor: colors.main },
           headerTitleStyle: { color: colors.grayscale[0] },
-          cardStyle: { backgroundColor: colors.main },
         }}
         component={screens.Home}
       />
-      <Tab.Screen name="Music" component={screens.Home} />
-      <Tab.Screen name="Profile" component={screens.Home} />
+      <Tab.Screen
+        options={{
+          headerStyle: { backgroundColor: colors.main },
+          headerTitleStyle: { color: colors.grayscale[0] },
+        }}
+        name="Music"
+        component={screens.Home}
+      />
+      <Tab.Screen
+        options={{
+          headerStyle: { backgroundColor: colors.main },
+          headerTitleStyle: { color: colors.grayscale[0] },
+        }}
+        name="Profile"
+        component={screens.Home}
+      />
     </Tab.Navigator>
   );
 };
@@ -31,7 +44,14 @@ const TabStack = () => {
 const RootStackNav = createStackNavigator();
 const RootStack = () => {
   return (
-    <RootStackNav.Navigator initialRouteName="Main">
+    <RootStackNav.Navigator initialRouteName="Splash">
+      <RootStackNav.Screen
+        name="Splash"
+        options={{
+          headerShown: false,
+        }}
+        component={screens.Splash}
+      />
       <RootStackNav.Screen
         name="Main"
         options={{
