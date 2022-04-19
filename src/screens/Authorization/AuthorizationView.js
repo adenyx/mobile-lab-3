@@ -16,24 +16,42 @@ const AuthorizationView = props => {
         <Icon name="logo" width={40} height={40} color={colors.grayscale[0]} />
         <View style={styles.title}>
           <Text size={24} weight="bold" color={colors.grayscale[0]}>
-            Sign In
+            {props.isRegistrationMode ? 'Sign Up' : 'Sign In'}
           </Text>
         </View>
       </View>
       <View style={styles.inputContainer}>
         <View style={styles.inputBlock}>
-          <Input placeholder="Email" />
+          <Input
+            value={props.email}
+            onChangeText={props.setEmail}
+            placeholder="Email"
+          />
         </View>
         <View style={styles.inputBlock}>
-          <Input placeholder="Password" />
+          <Input
+            value={props.password}
+            onChangeText={props.setPassword}
+            isPasswordInput={true}
+            placeholder="Password"
+          />
         </View>
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button value="Sign In" />
+        <Button
+          loading={props.isLoading}
+          onPress={
+            props.isRegistrationMode ? props.handleSignUp : props.handleSignIn
+          }
+          value={props.isRegistrationMode ? 'Sign Up' : 'Sign In'}
+        />
         <View style={styles.registerBlock}>
-          <Text size={18} color={colors.grayscale[0]}>
-            Register
+          <Text
+            size={18}
+            color={colors.grayscale[0]}
+            onPress={props.handleChangeMode}>
+            {props.isRegistrationMode ? 'Authorize' : 'Register'}
           </Text>
         </View>
       </View>

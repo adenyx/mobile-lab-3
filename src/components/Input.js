@@ -6,15 +6,16 @@ import { colors } from '../styles';
 
 /**
  * Input component
- * @prop {string} searchValue
+ * @prop {string} value
  * @prop {string} placeholder
- * @prop {function} onChangeSearchText
+ * @prop {function} onChangeText
  * @prop {function} setFocus
  */
 const Input = ({
-  searchValue = '',
+  value = '',
   placeholder = 'placeholder',
-  onChangeSearchText = () => {},
+  isPasswordInput = false,
+  onChangeText = () => {},
   setFocus = () => {},
 }) => {
   return (
@@ -22,11 +23,12 @@ const Input = ({
       <TextInput
         placeholderTextColor={`${colors.grayscale[4]}`}
         style={styles.textInput}
-        value={searchValue}
+        value={value}
         autoFocus={false}
         onFocus={() => setFocus(true)}
         onBlur={() => setFocus(false)}
-        onChangeText={onChangeSearchText}
+        onChangeText={onChangeText}
+        secureTextEntry={isPasswordInput}
         placeholder={placeholder}
         selectionColor={colors.grayscale[0]}
       />
