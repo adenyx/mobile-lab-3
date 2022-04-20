@@ -17,7 +17,7 @@ const Button = ({
   size = 'large',
   loading = false,
 }) => {
-  const styles = getStyles(size, textSize, textColor, textWeight);
+  const styles = getStyles(size, textSize, textColor, textWeight, disabled);
   return (
     <TouchableOpacity
       activeOpacity={0.6}
@@ -33,7 +33,7 @@ const Button = ({
   );
 };
 
-const getStyles = (size, textSize, textColor, textWeight) =>
+const getStyles = (size, textSize, textColor, textWeight, disabled) =>
   RNStyles.create({
     container: {
       width: '100%',
@@ -41,7 +41,9 @@ const getStyles = (size, textSize, textColor, textWeight) =>
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 8,
-      backgroundColor: colors.activeColor,
+      backgroundColor: disabled
+        ? `${colors.activeColor}60`
+        : colors.activeColor,
     },
 
     value: {

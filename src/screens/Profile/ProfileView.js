@@ -3,7 +3,7 @@ import { View, TouchableOpacity, ActivityIndicator } from 'react-native';
 
 import RNStyles from '@tapston/react-native-styles';
 
-import { Header, Text, Avatar } from '../../components';
+import { Header, Text, Avatar, TouchBlock } from '../../components';
 import { colors } from '../../styles';
 
 const ProfileView = props => {
@@ -25,7 +25,7 @@ const ProfileView = props => {
         navigation={props.navigation}
       />
       <View style={styles.avatarBlock}>
-        <Avatar photoUrl={props.userData.photoUrl} />
+        <Avatar photoUrl={props.userData.photoUrl} size="large" />
         <Text
           size={28}
           weight="700"
@@ -33,6 +33,13 @@ const ProfileView = props => {
           style={styles.nickname}>
           {props.userData.name}
         </Text>
+      </View>
+      <View style={styles.contentContainer}>
+        <TouchBlock
+          title="BWI"
+          subTitle="Body Weight Index calculator"
+          onPress={props.navigateToBWI}
+        />
       </View>
     </View>
   );
@@ -47,10 +54,13 @@ const styles = RNStyles.create({
   avatarBlock: {
     width: '100%',
     alignItems: 'center',
-    marginTop: 24,
   },
   nickname: {
     marginTop: 8,
+  },
+  contentContainer: {
+    marginTop: 24,
+    paddingHorizontal: 24,
   },
 });
 

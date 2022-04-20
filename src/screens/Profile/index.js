@@ -26,6 +26,8 @@ const ProfileContainer = props => {
     }
   };
 
+  const navigateToBWI = () => props.navigation.navigate('MassIndex');
+
   return (
     <ProfileView
       /**
@@ -38,6 +40,7 @@ const ProfileContainer = props => {
        * Methods
        */
       handleLogOut={handleLogOut}
+      navigateToBWI={navigateToBWI}
     />
   );
 };

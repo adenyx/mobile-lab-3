@@ -16,28 +16,40 @@ const SettingsContainer = props => {
   const [canSave, setCanSave] = useState(false);
 
   const [name, setName] = useState(userData.name);
-  const [photoUrl, setPhotoUrl] = useState(userData.photoUrl);
+  const [photoUrl, setPhotoUrl] = useState(userData.photoUrl || '');
+  const [age, setAge] = useState(userData.age || '');
+  const [height, setHeight] = useState(userData.height || '');
 
   const nameCondition = name !== userData.name && name.length;
   const photoUrlCondition = photoUrl !== userData.photoUrl && photoUrl.length;
+  const ageCondition = age !== userData.age && age.length;
+  const heightCondition = height !== userData.height && height.length;
 
   const handleSaveChanges = () => {
     dispatch(
       UserActions.updateUserData(userData.uid, {
         ...userData,
-        name: name || '',
-        photoUrl: photoUrl || '',
+        name: name,
+        photoUrl: photoUrl,
+        age: age,
+        height: height,
       }),
     );
   };
 
   useEffect(() => {
-    if (nameCondition || photoUrlCondition) {
+    if (nameCondition || photoUrlCondition || ageCondition || heightCondition) {
       setCanSave(true);
     } else {
       setCanSave(false);
     }
-  }, [userData, name, photoUrl, nameCondition, photoUrlCondition]);
+  }, [
+    userData,
+    nameCondition,
+    photoUrlCondition,
+    ageCondition,
+    heightCondition,
+  ]);
   useEffect(() => {
     if (isUserDataLoadingSuccess) {
       setEditingMode(false);
@@ -54,6 +66,8 @@ const SettingsContainer = props => {
       canSave={canSave}
       photoUrl={photoUrl}
       isUserDataLoading={isUserDataLoading}
+      age={age}
+      height={height}
       /**
        * Methods
        */
@@ -61,6 +75,8 @@ const SettingsContainer = props => {
       setEditingMode={setEditingMode}
       handleSaveChanges={handleSaveChanges}
       setPhotoUrl={setPhotoUrl}
+      setAge={setAge}
+      setHeight={setHeight}
     />
   );
 };

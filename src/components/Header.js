@@ -64,6 +64,7 @@ const getStyles = insets =>
       width: '100%',
       height: insets.top + 48,
       paddingTop: insets.top,
+      marginBottom: 32,
     },
     headerContent: {
       height: '100%',

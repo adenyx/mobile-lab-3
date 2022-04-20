@@ -85,6 +85,13 @@ const RootStack = () => {
         }}
         component={screens.Settings}
       />
+      <RootStackNav.Screen
+        name="MassIndex"
+        options={{
+          headerShown: false,
+        }}
+        component={screens.MassIndex}
+      />
     </RootStackNav.Navigator>
   );
 };

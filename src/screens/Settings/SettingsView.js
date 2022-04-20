@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, TouchableOpacity, ActivityIndicator } from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  ActivityIndicator,
+  ScrollView,
+} from 'react-native';
 
 import RNStyles from '@tapston/react-native-styles';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -44,7 +49,7 @@ const SettingsView = props => {
           />
         </View>
       ) : (
-        <View style={styles.editingContainer}>
+        <ScrollView style={styles.editingContainer}>
           <Text
             size={20}
             weight="600"
@@ -69,7 +74,31 @@ const SettingsView = props => {
             value={props.photoUrl}
             onChangeText={props.setPhotoUrl}
           />
-        </View>
+          <Text
+            size={20}
+            weight="600"
+            color={colors.grayscale[0]}
+            style={styles.titleText}>
+            Age:
+          </Text>
+          <Input
+            placeholder="18"
+            value={props.age}
+            onChangeText={props.setAge}
+          />
+          <Text
+            size={20}
+            weight="600"
+            color={colors.grayscale[0]}
+            style={styles.titleText}>
+            Height:
+          </Text>
+          <Input
+            placeholder="175"
+            value={props.height}
+            onChangeText={props.setHeight}
+          />
+        </ScrollView>
       )}
     </View>
   );
@@ -82,7 +111,7 @@ const getStyles = insets =>
       backgroundColor: colors.main,
     },
     screenContainer: {
-      padding: 24,
+      paddingHorizontal: 24,
     },
 
     editingContainer: {
