@@ -30,11 +30,12 @@ const TabStack = () => {
       />
       <Tab.Screen
         options={{
+          headerShown: false,
           headerStyle: { backgroundColor: colors.main },
           headerTitleStyle: { color: colors.grayscale[0] },
         }}
         name="Profile"
-        component={screens.Home}
+        component={screens.Profile}
       />
     </Tab.Navigator>
   );
