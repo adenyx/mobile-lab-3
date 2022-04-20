@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import screens from '../screens';
 import { TabBar } from '../components';
 import { colors } from '../styles';
+import { useSelector } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 const TabStack = () => {
@@ -43,6 +44,8 @@ const TabStack = () => {
 
 const RootStackNav = createStackNavigator();
 const RootStack = () => {
+  const userData = useSelector(store => store.user.userData);
+
   return (
     <RootStackNav.Navigator initialRouteName="Splash">
       <RootStackNav.Screen
@@ -52,20 +55,23 @@ const RootStack = () => {
         }}
         component={screens.Splash}
       />
-      <RootStackNav.Screen
-        name="Authorization"
-        options={{
-          headerShown: false,
-        }}
-        component={screens.Authorization}
-      />
-      <RootStackNav.Screen
-        name="Main"
-        options={{
-          headerShown: false,
-        }}
-        component={TabStack}
-      />
+      {!userData ? (
+        <RootStackNav.Screen
+          name="Authorization"
+          options={{
+            headerShown: false,
+          }}
+          component={screens.Authorization}
+        />
+      ) : (
+        <RootStackNav.Screen
+          name="Main"
+          options={{
+            headerShown: false,
+          }}
+          component={TabStack}
+        />
+      )}
     </RootStackNav.Navigator>
   );
 };

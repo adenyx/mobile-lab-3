@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 
+import { animateLayout } from '@tapston/react-native-animation';
+import { useDispatch } from 'react-redux';
+
 import AuthorizationView from './AuthorizationView';
 import { errorHandler } from '../../core/utils';
 import { AuthService } from '../../core/api';
-import { animateLayout } from '@tapston/react-native-animation';
+import UserActions from '../../store/reducers/user/actions';
 
 const AuthorizationContainer = props => {
+  const dispatch = useDispatch();
+
   const [isRegistrationMode, setRegistrationMode] = useState(false);
 
   const [isLoading, setLoading] = useState(false);
@@ -16,8 +21,10 @@ const AuthorizationContainer = props => {
   const handleSignIn = async () => {
     try {
       setLoading(true);
-      // TODO complete sign in
       const data = await AuthService.authorizationWithEmail(email, password);
+      dispatch(
+        UserActions.editUser({ uid: data.user.uid, email: data.user.email }),
+      );
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -28,8 +35,10 @@ const AuthorizationContainer = props => {
   const handleSignUp = async () => {
     try {
       setLoading(true);
-      // TODO complete sign up
       const data = await AuthService.registrationWidthEmail(email, password);
+      dispatch(
+        UserActions.createUser({ uid: data.user.uid, email: data.user.email }),
+      );
       setLoading(false);
     } catch (error) {
       setLoading(false);
