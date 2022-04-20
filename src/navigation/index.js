@@ -3,10 +3,13 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { useSelector } from 'react-redux';
+
 import screens from '../screens';
 import { TabBar } from '../components';
 import { colors } from '../styles';
-import { useSelector } from 'react-redux';
+
+// --------------------------------------------------------
 
 const Tab = createBottomTabNavigator();
 const TabStack = () => {
@@ -15,6 +18,7 @@ const TabStack = () => {
       <Tab.Screen
         name="Home"
         options={{
+          headerShown: false,
           headerStyle: { backgroundColor: colors.main },
           headerTitleStyle: { color: colors.grayscale[0] },
         }}
@@ -22,6 +26,7 @@ const TabStack = () => {
       />
       <Tab.Screen
         options={{
+          headerShown: false,
           headerStyle: { backgroundColor: colors.main },
           headerTitleStyle: { color: colors.grayscale[0] },
         }}
@@ -73,6 +78,13 @@ const RootStack = () => {
           component={TabStack}
         />
       )}
+      <RootStackNav.Screen
+        name="Settings"
+        options={{
+          headerShown: false,
+        }}
+        component={screens.Settings}
+      />
     </RootStackNav.Navigator>
   );
 };

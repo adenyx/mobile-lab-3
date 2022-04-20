@@ -9,6 +9,7 @@ export default class AuthService {
         email,
         password,
       );
+
       log('api-success', '[AUTH] Registration complete', result);
       return result;
     } catch (err) {

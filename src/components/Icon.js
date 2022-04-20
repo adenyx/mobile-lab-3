@@ -6,6 +6,9 @@ import Logo from '../assets/svg/logo.svg';
 import Hamburger from '../assets/svg/hamburger.svg';
 import Profile from '../assets/svg/profile.svg';
 import Music from '../assets/svg/music.svg';
+import Settings from '../assets/svg/settings.svg';
+import Arrow from '../assets/svg/arrow.svg';
+import ArrowRight from '../assets/svg/arrow-right.svg';
 
 /**
  * @component Icon
@@ -35,6 +38,12 @@ const Icon = ({
       return <Profile width={iconWidth} height={iconHeight} color={color} />;
     case 'music':
       return <Music width={iconWidth} height={iconHeight} color={color} />;
+    case 'settings':
+      return <Settings width={iconWidth} height={iconHeight} color={color} />;
+    case 'arrow':
+      return <Arrow width={iconWidth} height={iconHeight} color={color} />;
+    case 'arrow-right':
+      return <ArrowRight width={iconWidth} height={iconHeight} color={color} />;
 
     default:
       return null;

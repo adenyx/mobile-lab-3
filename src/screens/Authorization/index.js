@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import AuthorizationView from './AuthorizationView';
 import { errorHandler } from '../../core/utils';
-import { AuthService } from '../../core/api';
+import { AuthService, UserService } from '../../core/api';
 import UserActions from '../../store/reducers/user/actions';
 
 const AuthorizationContainer = props => {
@@ -22,9 +22,8 @@ const AuthorizationContainer = props => {
     try {
       setLoading(true);
       const data = await AuthService.authorizationWithEmail(email, password);
-      dispatch(
-        UserActions.editUser({ uid: data.user.uid, email: data.user.email }),
-      );
+      const userData = await UserService.getUserData(data.user.uid);
+      dispatch(UserActions.editUser(userData));
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -36,8 +35,17 @@ const AuthorizationContainer = props => {
     try {
       setLoading(true);
       const data = await AuthService.registrationWidthEmail(email, password);
+      await UserService.createNewUser(data.user.uid, {
+        uid: data.user.uid,
+        email: data.user.email,
+        name: 'Guest',
+      });
       dispatch(
-        UserActions.createUser({ uid: data.user.uid, email: data.user.email }),
+        UserActions.createUser({
+          uid: data.user.uid,
+          email: data.user.email,
+          name: 'Guest',
+        }),
       );
       setLoading(false);
     } catch (error) {

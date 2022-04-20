@@ -3,16 +3,18 @@ import React, { useState, useEffect } from 'react';
 import HomeView from './HomeView';
 
 const HomeContainer = props => {
-  return <HomeView
-    /**
-    * Options
-    */
+  return (
+    <HomeView
+      /**
+       * Options
+       */
+      navigation={props.navigation}
 
-    /**
-    * Methods
-    */
-
-   />;
+      /**
+       * Methods
+       */
+    />
+  );
 };
 
 export default HomeContainer;

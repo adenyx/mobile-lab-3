@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ProfileView from './ProfileView';
 import { AuthService } from '../../core/api';
@@ -9,6 +9,8 @@ import UserActions from '../../store/reducers/user/actions';
 
 const ProfileContainer = props => {
   const dispatch = useDispatch();
+
+  const userData = useSelector(store => store.user.userData);
 
   const [isLoading, setLoading] = useState(false);
 
@@ -30,6 +32,8 @@ const ProfileContainer = props => {
        * Options
        */
       isLoading={isLoading}
+      navigation={props.navigation}
+      userData={userData}
       /**
        * Methods
        */
