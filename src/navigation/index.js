@@ -92,6 +92,13 @@ const RootStack = () => {
         }}
         component={screens.MassIndex}
       />
+      <RootStackNav.Screen
+        name="AboutUs"
+        options={{
+          headerShown: false,
+        }}
+        component={screens.AboutUs}
+      />
     </RootStackNav.Navigator>
   );
 };

@@ -50,11 +50,15 @@ const SettingsContainer = props => {
     ageCondition,
     heightCondition,
   ]);
+
   useEffect(() => {
     if (isUserDataLoadingSuccess) {
       setEditingMode(false);
     }
   }, [isUserDataLoadingSuccess]);
+
+  const handleNavigateAbout = () => props.navigation.navigate('AboutUs');
+
   return (
     <SettingsView
       /**
@@ -77,6 +81,7 @@ const SettingsContainer = props => {
       setPhotoUrl={setPhotoUrl}
       setAge={setAge}
       setHeight={setHeight}
+      handleNavigateAbout={handleNavigateAbout}
     />
   );
 };

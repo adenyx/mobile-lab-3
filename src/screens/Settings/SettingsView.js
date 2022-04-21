@@ -47,6 +47,12 @@ const SettingsView = props => {
             subTitle="Edit user data"
             onPress={() => props.setEditingMode(true)}
           />
+          <View style={styles.divider} />
+          <TouchBlock
+            title="About us"
+            subTitle="Developer information"
+            onPress={props.handleNavigateAbout}
+          />
         </View>
       ) : (
         <ScrollView style={styles.editingContainer}>
@@ -119,6 +125,9 @@ const getStyles = insets =>
     },
     titleText: {
       marginTop: 16,
+    },
+    divider: {
+      height: 24,
     },
   });
 
