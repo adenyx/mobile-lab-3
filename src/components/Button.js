@@ -8,7 +8,7 @@ import { colors } from '../styles';
 
 const Button = ({
   onPress = () => {},
-  value = 'Button',
+  value = 'Нажать',
   disabled = false,
   containerStyle = {},
   textColor = colors.grayscale[0],

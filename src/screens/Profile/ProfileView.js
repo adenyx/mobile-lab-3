@@ -16,7 +16,7 @@ const ProfileView = props => {
               <ActivityIndicator color={colors.grayscale[0]} />
             ) : (
               <Text size={18} color={colors.grayscale[0]}>
-                Exit
+                Выход
               </Text>
             )}
           </TouchableOpacity>
@@ -36,8 +36,8 @@ const ProfileView = props => {
       </View>
       <View style={styles.contentContainer}>
         <TouchBlock
-          title="BWI"
-          subTitle="Body Weight Index calculator"
+          title="ИМТ"
+          subTitle="Калькулятор Индекса Массы Тела"
           onPress={props.navigateToBWI}
         />
       </View>

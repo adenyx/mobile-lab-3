@@ -1,4 +1,6 @@
+import { api } from './api';
 import AuthService from './auth';
 import UserService from './user';
+import HoroscopeService from './horoscope';
 
-export { AuthService, UserService };
+export { api, AuthService, UserService, HoroscopeService };

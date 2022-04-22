@@ -30,7 +30,7 @@ const SettingsView = props => {
                   <ActivityIndicator color={colors.grayscale[0]} />
                 ) : (
                   <Text size={18} color={colors.grayscale[0]}>
-                    Save
+                    Сохранить
                   </Text>
                 )}
               </TouchableOpacity>
@@ -43,14 +43,14 @@ const SettingsView = props => {
       {!props.isEditingMode ? (
         <View style={styles.screenContainer}>
           <TouchBlock
-            title="User data"
-            subTitle="Edit user data"
+            title="Данные пользователя"
+            subTitle="Редактирование данных пользователя"
             onPress={() => props.setEditingMode(true)}
           />
           <View style={styles.divider} />
           <TouchBlock
-            title="About us"
-            subTitle="Developer information"
+            title="О нас"
+            subTitle="Информация о разработчике"
             onPress={props.handleNavigateAbout}
           />
         </View>
@@ -61,10 +61,10 @@ const SettingsView = props => {
             weight="600"
             color={colors.grayscale[0]}
             style={styles.titleText}>
-            User name:
+            Имя пользователя:
           </Text>
           <Input
-            placeholder="Guest"
+            placeholder="Гость"
             value={props.name}
             onChangeText={props.setName}
           />
@@ -73,7 +73,7 @@ const SettingsView = props => {
             weight="600"
             color={colors.grayscale[0]}
             style={styles.titleText}>
-            Photo url:
+            Ссылка на фотографию:
           </Text>
           <Input
             placeholder="http://..."
@@ -85,7 +85,7 @@ const SettingsView = props => {
             weight="600"
             color={colors.grayscale[0]}
             style={styles.titleText}>
-            Age:
+            Возраст:
           </Text>
           <Input
             placeholder="18"
@@ -97,7 +97,7 @@ const SettingsView = props => {
             weight="600"
             color={colors.grayscale[0]}
             style={styles.titleText}>
-            Height:
+            Рост:
           </Text>
           <Input
             placeholder="175"

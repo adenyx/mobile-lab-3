@@ -16,7 +16,7 @@ const MassIndexView = props => {
           weight="600"
           color={colors.grayscale[0]}
           style={styles.titleText}>
-          Weight (in kg.):
+          Вес (в кг.):
         </Text>
         <Input
           placeholder="85"
@@ -29,7 +29,7 @@ const MassIndexView = props => {
           weight="600"
           color={colors.grayscale[0]}
           style={styles.titleText}>
-          Height (in cm.):
+          Рост (в см.):
         </Text>
         <Input
           placeholder="185"
@@ -46,10 +46,10 @@ const MassIndexView = props => {
         {typeof props.bwi === 'number' && (
           <View style={styles.resultBlock}>
             <Text size={20} weight="600" color={colors.grayscale[0]}>
-              Result:
+              Результат:
             </Text>
             <Text size={18} color={colors.grayscale[0]}>
-              BWI: {props.bwi.toFixed(1)}
+              ИМТ: {props.bwi.toFixed(1)}
             </Text>
             <Text size={18} color={colors.grayscale[0]}>
               {props.bwiResult}

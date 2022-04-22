@@ -25,7 +25,7 @@ const AuthorizationView = props => {
           <Input
             value={props.email}
             onChangeText={props.setEmail}
-            placeholder="Email"
+            placeholder="Эл.почта"
           />
         </View>
         <View style={styles.inputBlock}>
@@ -33,7 +33,7 @@ const AuthorizationView = props => {
             value={props.password}
             onChangeText={props.setPassword}
             isPasswordInput={true}
-            placeholder="Password"
+            placeholder="Пароль"
           />
         </View>
       </View>
@@ -44,14 +44,14 @@ const AuthorizationView = props => {
           onPress={
             props.isRegistrationMode ? props.handleSignUp : props.handleSignIn
           }
-          value={props.isRegistrationMode ? 'Sign Up' : 'Sign In'}
+          value={props.isRegistrationMode ? 'Регистрация' : 'Авторизация'}
         />
         <View style={styles.registerBlock}>
           <Text
             size={18}
             color={colors.grayscale[0]}
             onPress={props.handleChangeMode}>
-            {props.isRegistrationMode ? 'Authorize' : 'Register'}
+            {props.isRegistrationMode ? 'Авторизоваться' : 'Зарегистрироваться'}
           </Text>
         </View>
       </View>
