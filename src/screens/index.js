@@ -5,6 +5,7 @@ import Profile from './Profile';
 import Settings from './Settings';
 import MassIndex from './MassIndex';
 import AboutUs from './AboutUs';
+import Music from './Music';
 
 export default {
   Home,
@@ -14,4 +15,5 @@ export default {
   Settings,
   MassIndex,
   AboutUs,
+  Music,
 };

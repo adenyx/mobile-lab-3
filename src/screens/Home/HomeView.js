@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, TouchableOpacity } from 'react-native';
+import { View, FlatList, TouchableOpacity, Image } from 'react-native';
 
 import RNStyles from '@tapston/react-native-styles';
 
@@ -23,6 +23,42 @@ const HomeView = props => {
         <Text size={18} color={colors.grayscale[2]}>
           Каким ты себя ощущаешь сегодня?
         </Text>
+      </View>
+
+      <View>
+        <FlatList
+          data={props.FEELINGS}
+          keyExtractor={el => el.title}
+          horizontal={true}
+          contentContainerStyle={styles.feelingsBlock}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() => props.handleSelectFeeling(item)}
+              style={styles.feelingsItemContainer}>
+              <View
+                style={[
+                  styles.feelingImageContainer,
+                  props.selectedFeeling.title === item.title
+                    ? {
+                        backgroundColor: colors.grayscale[0],
+                      }
+                    : {
+                        backgroundColor: colors.grayscale[4],
+                      },
+                ]}>
+                <Image source={item.imageSrc} style={styles.feelingImage} />
+              </View>
+              <Text
+                color={
+                  props.selectedFeeling.title === item.title
+                    ? colors.grayscale[0]
+                    : colors.grayscale[4]
+                }>
+                {item.title}
+              </Text>
+            </TouchableOpacity>
+          )}
+        />
       </View>
 
       <View style={styles.zodiacBlock}>
@@ -112,6 +148,27 @@ const styles = RNStyles.create({
     marginHorizontal: 24,
     borderRadius: 12,
     backgroundColor: colors.grayscale[0],
+  },
+
+  feelingsBlock: {
+    marginTop: 24,
+    paddingHorizontal: 16,
+  },
+  feelingsItemContainer: {
+    paddingHorizontal: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  feelingImageContainer: {
+    square: 72,
+    marginBottom: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 24,
+  },
+  feelingImage: {
+    square: 48,
+    borderRadius: 12,
   },
 });
 

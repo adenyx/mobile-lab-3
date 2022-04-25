@@ -7,11 +7,31 @@ import { errorHandler } from '../../core/utils';
 import { HoroscopeService } from '../../core/api';
 
 const HomeContainer = props => {
+  const FEELINGS = [
+    {
+      title: 'Спокойным',
+      imageSrc: require('../../assets/img/calm.png'),
+    },
+    {
+      title: 'Расслабленным',
+      imageSrc: require('../../assets/img/relax.png'),
+    },
+    {
+      title: 'Сосредоточенным',
+      imageSrc: require('../../assets/img/focus.png'),
+    },
+  ];
+
   const userData = useSelector(store => store.user.userData);
 
+  const [selectedFeeling, setSelectedFeeling] = useState(null);
   const [zodiacData, setZodiacData] = useState([]);
   const [zodiacTitles, setZodiacTitles] = useState([]);
   const [selectedZodiac, setSelectedZodiac] = useState('aries');
+
+  const handleSelectFeeling = feeling => {
+    setSelectedFeeling(feeling);
+  };
 
   const handleSelectZodiac = async zodiac => {
     setSelectedZodiac(zodiac.url);
@@ -52,11 +72,14 @@ const HomeContainer = props => {
       zodiacTitles={zodiacTitles}
       selectedZodiac={selectedZodiac}
       zodiacData={zodiacData}
+      selectedFeeling={selectedFeeling}
+      FEELINGS={FEELINGS}
       /**
        * Methods
        */
       setSelectedZodiac={setSelectedZodiac}
       handleSelectZodiac={handleSelectZodiac}
+      handleSelectFeeling={handleSelectFeeling}
     />
   );
 };

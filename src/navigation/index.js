@@ -31,7 +31,7 @@ const TabStack = () => {
           headerTitleStyle: { color: colors.grayscale[0] },
         }}
         name="Music"
-        component={screens.Home}
+        component={screens.Music}
       />
       <Tab.Screen
         options={{
