@@ -38,7 +38,7 @@ const HomeView = props => {
               <View
                 style={[
                   styles.feelingImageContainer,
-                  props.selectedFeeling.title === item.title
+                  props.selectedFeeling?.title === item.title
                     ? {
                         backgroundColor: colors.grayscale[0],
                       }
@@ -49,8 +49,9 @@ const HomeView = props => {
                 <Image source={item.imageSrc} style={styles.feelingImage} />
               </View>
               <Text
+                size={12}
                 color={
-                  props.selectedFeeling.title === item.title
+                  props.selectedFeeling?.title === item.title
                     ? colors.grayscale[0]
                     : colors.grayscale[4]
                 }>
@@ -155,9 +156,10 @@ const styles = RNStyles.create({
     paddingHorizontal: 16,
   },
   feelingsItemContainer: {
+    width: 100,
     paddingHorizontal: 8,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   feelingImageContainer: {
     square: 72,

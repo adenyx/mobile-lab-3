@@ -7,6 +7,7 @@ const initialState = {
   success: false,
   failure: false,
   userData: null,
+  userFeeling: null,
 };
 
 const WRITE_USER_DATA_REQUEST = 'WRITE_USER_DATA_REQUEST';
@@ -16,6 +17,8 @@ const WRITE_USER_DATA_FAILURE = 'WRITE_USER_DATA_FAILURE';
 const CREATE_USER = 'CREATE_USER';
 const EDIT_USER = 'EDIT_USER';
 const CLEAR_USER_DATA = 'CLEAR_USER_DATA';
+
+const UPDATE_USER_FEELINGS = 'UPDATE_USER_FEELINGS';
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -55,6 +58,12 @@ const reducer = (state = initialState, action) => {
         userData: null,
       };
 
+    case UPDATE_USER_FEELINGS:
+      return {
+        ...state,
+        userFeeling: action.payload,
+      };
+
     default:
       return state;
   }
@@ -83,6 +92,11 @@ export const editUser = payload => ({
 
 export const clearUserData = () => ({
   type: CREATE_USER,
+});
+
+export const updateUserFeelings = payload => ({
+  type: UPDATE_USER_FEELINGS,
+  payload,
 });
 
 export default reducer;

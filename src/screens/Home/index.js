@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import HomeView from './HomeView';
 import { errorHandler } from '../../core/utils';
 import { HoroscopeService } from '../../core/api';
+import UserActions from '../../store/reducers/user/actions';
 
 const HomeContainer = props => {
   const FEELINGS = [
@@ -22,6 +23,8 @@ const HomeContainer = props => {
     },
   ];
 
+  const dispatch = useDispatch();
+
   const userData = useSelector(store => store.user.userData);
 
   const [selectedFeeling, setSelectedFeeling] = useState(null);
@@ -30,6 +33,7 @@ const HomeContainer = props => {
   const [selectedZodiac, setSelectedZodiac] = useState('aries');
 
   const handleSelectFeeling = feeling => {
+    dispatch(UserActions.updateUserFeeling(feeling));
     setSelectedFeeling(feeling);
   };
 

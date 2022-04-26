@@ -8,6 +8,7 @@ import {
   clearUserData,
   createUser,
   editUser,
+  updateUserFeelings,
   writeUserDataFailure,
   writeUserDataRequest,
   writeUserDataSuccess,
@@ -42,6 +43,11 @@ class UserActions {
   static clearUserData() {
     return async dispatch => {
       dispatch(clearUserData());
+    };
+  }
+  static updateUserFeeling(feeling) {
+    return async dispatch => {
+      dispatch(updateUserFeelings(feeling));
     };
   }
 }
