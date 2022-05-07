@@ -12,7 +12,7 @@ const HomeView = props => {
       <Header
         navigation={props.navigation}
         rightContent={() => (
-          <Avatar size="small" photoUrl={props.userData.photoUrl} />
+          <Avatar size="small" photoUrl={props.userData?.photoUrl} />
         )}
       />
 
@@ -27,6 +27,7 @@ const HomeView = props => {
 
       <View>
         <FlatList
+          showsHorizontalScrollIndicator={false}
           data={props.FEELINGS}
           keyExtractor={el => el.title}
           horizontal={true}

@@ -3,20 +3,23 @@ import { View, Image, TouchableOpacity } from 'react-native';
 
 import RNStyles from '@tapston/react-native-styles';
 
-import { AudioComponent, Text } from '../../components';
 import { colors } from '../../styles';
+import { Text } from '../../components';
 
 const MusicView = props => {
   return (
     <View style={styles.container}>
       <View style={styles.video}>
-        <View>
+        <View style={styles.centerContainer}>
+          <Text size={18} color={colors.grayscale[0]}>
+            {props.currentMusic.title}
+          </Text>
           <TouchableOpacity
             onPress={() => props.setPaused()}
             style={styles.playIconContainer}>
             <Image
               source={
-                props.paused
+                props.isPaused
                   ? require('../../assets/img/play.png')
                   : require('../../assets/img/pause.png')
               }
@@ -37,8 +40,10 @@ const styles = RNStyles.create({
   },
   playIconContainer: {
     padding: 16,
-    // backgroundColor: colors.grayscale[0],
     borderRadius: 100,
+  },
+  centerContainer: {
+    alignItems: 'center',
   },
 });
 

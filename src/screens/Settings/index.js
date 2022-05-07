@@ -16,12 +16,12 @@ const SettingsContainer = props => {
   const [canSave, setCanSave] = useState(false);
 
   const [name, setName] = useState(userData.name);
-  const [photoUrl, setPhotoUrl] = useState(userData.photoUrl || '');
+  const [photoUrl, setPhotoUrl] = useState(userData?.photoUrl || '');
   const [age, setAge] = useState(userData.age || '');
   const [height, setHeight] = useState(userData.height || '');
 
   const nameCondition = name !== userData.name && name.length;
-  const photoUrlCondition = photoUrl !== userData.photoUrl && photoUrl.length;
+  const photoUrlCondition = photoUrl !== userData?.photoUrl && photoUrl.length;
   const ageCondition = age !== userData.age && age.length;
   const heightCondition = height !== userData.height && height.length;
 

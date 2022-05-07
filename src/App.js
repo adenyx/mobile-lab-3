@@ -15,7 +15,13 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import RootStack from './navigation';
 import { AudioComponent, Widget } from './components';
-import { DZHARAHOV_SRC, MACAN_ZA_VSEH, SHOWDOWN } from './core/constants';
+import {
+  KOSICHKI,
+  FREDERICO_FELLINI,
+  GAYAZOV_BROTHERS,
+  GUNWEST,
+  CHAK_NORRIS,
+} from './core/constants';
 import MusicActions from './store/reducers/music/actions';
 
 const App = () => {
@@ -28,16 +34,24 @@ const App = () => {
   const musicData = useMemo(
     () => [
       {
-        title: 'Джарахов',
-        src: DZHARAHOV_SRC,
+        title: 'RASA - Косички',
+        src: KOSICHKI,
       },
       {
-        title: 'Macan',
-        src: MACAN_ZA_VSEH,
+        title: 'Galibri & Mavik - Federico Fellini',
+        src: FREDERICO_FELLINI,
       },
       {
-        title: 'SHOWDOWN',
-        src: SHOWDOWN,
+        title: 'GAYAZOV BROTHERS - Breath',
+        src: GAYAZOV_BROTHERS,
+      },
+      {
+        title: 'Galibri & Mavik - Chak Norris',
+        src: CHAK_NORRIS,
+      },
+      {
+        title: 'GUNWEST - Кайфули',
+        src: GUNWEST,
       },
     ],
     [],

@@ -53,7 +53,7 @@ const styles = RNStyles.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16,
-    backgroundColor: colors.activeColor,
+    backgroundColor: colors.grayscale[10],
   },
   icon: {
     width: 40,

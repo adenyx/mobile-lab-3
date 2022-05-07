@@ -25,7 +25,7 @@ const ProfileView = props => {
         navigation={props.navigation}
       />
       <View style={styles.avatarBlock}>
-        <Avatar photoUrl={props.userData.photoUrl} size="large" />
+        <Avatar photoUrl={props.userData?.photoUrl} size="large" />
         <Text
           size={28}
           weight="700"

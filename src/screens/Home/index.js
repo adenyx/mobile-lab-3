@@ -21,6 +21,14 @@ const HomeContainer = props => {
       title: 'Сосредоточенным',
       imageSrc: require('../../assets/img/focus.png'),
     },
+    {
+      title: 'Концентрация',
+      imageSrc: require('../../assets/img/concentration.png'),
+    },
+    {
+      title: 'Вдохновение',
+      imageSrc: require('../../assets/img/inspiration.png'),
+    },
   ];
 
   const dispatch = useDispatch();

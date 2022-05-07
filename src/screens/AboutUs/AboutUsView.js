@@ -11,7 +11,7 @@ const AboutUsView = props => {
     <View style={styles.container}>
       <Header navigation={props.navigation} withGoBack={true} />
       <View style={styles.content}>
-        <Text size={24} weight="600" color={colors.grayscale[0]}>
+        {/* <Text size={24} weight="600" color={colors.grayscale[0]}>
           Developer's company:
         </Text>
         <Text
@@ -20,7 +20,7 @@ const AboutUsView = props => {
           color={colors.grayscale[2]}
           style={styles.lastMessage}>
           BSUIR
-        </Text>
+        </Text> */}
         <Text size={24} weight="600" color={colors.grayscale[0]}>
           Developer:
         </Text>
@@ -29,9 +29,9 @@ const AboutUsView = props => {
           weight="400"
           color={colors.grayscale[2]}
           style={styles.lastMessage}>
-          Avramenko Denis
+          Schemelev Maxim
         </Text>
-        <Text size={24} weight="600" color={colors.grayscale[0]}>
+        {/* <Text size={24} weight="600" color={colors.grayscale[0]}>
           Group:
         </Text>
         <Text
@@ -50,7 +50,7 @@ const AboutUsView = props => {
           color={colors.grayscale[2]}
           style={styles.lastMessage}>
           Third lab
-        </Text>
+        </Text> */}
       </View>
     </View>
   );
