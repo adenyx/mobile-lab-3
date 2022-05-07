@@ -7,6 +7,7 @@ import Header from './Header';
 import TouchBlock from './TouchBlock';
 import Avatar from './Avatar';
 import AudioComponent from './AudioComponent';
+import Widget from './Widget';
 
 export {
   Button,
@@ -18,4 +19,5 @@ export {
   TouchBlock,
   Avatar,
   AudioComponent,
+  Widget,
 };

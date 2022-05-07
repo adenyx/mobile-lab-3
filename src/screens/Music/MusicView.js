@@ -10,26 +10,19 @@ const MusicView = props => {
   return (
     <View style={styles.container}>
       <View style={styles.video}>
-        {props.musicSource ? (
-          <View>
-            <AudioComponent paused={props.paused} source={props.musicSource} />
-            <TouchableOpacity
-              onPress={() => props.setPaused(old => !old)}
-              style={styles.playIconContainer}>
-              <Image
-                source={
-                  props.paused
-                    ? require('../../assets/img/play.png')
-                    : require('../../assets/img/pause.png')
-                }
-              />
-            </TouchableOpacity>
-          </View>
-        ) : (
-          <Text size={18} color={colors.grayscale[0]}>
-            Выберите настроение
-          </Text>
-        )}
+        <View>
+          <TouchableOpacity
+            onPress={() => props.setPaused()}
+            style={styles.playIconContainer}>
+            <Image
+              source={
+                props.paused
+                  ? require('../../assets/img/play.png')
+                  : require('../../assets/img/pause.png')
+              }
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
