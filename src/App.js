@@ -7,7 +7,7 @@
  */
 
 import React, { useEffect, useMemo } from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, View, Platform } from 'react-native';
 
 import { useDispatch, useSelector } from 'react-redux';
 import RNStyles from '@tapston/react-native-styles';
@@ -89,7 +89,7 @@ const styles = RNStyles.create({
     zIndex: 999,
     left: 0,
     right: 0,
-    bottom: 80,
+    bottom: Platform.OS === 'ios' ? 80 : 0,
   },
 });
 
