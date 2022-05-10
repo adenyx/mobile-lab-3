@@ -70,11 +70,11 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle="light-content" />
-      {isWidgetVisible && (
+      {/* {isWidgetVisible && (
         <View style={styles.widget}>
           <Widget />
         </View>
-      )}
+      )} */}
       {currentMusic && (
         <AudioComponent paused={isMusicPaused} source={currentMusic?.src} />
       )}
