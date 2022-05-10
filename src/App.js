@@ -30,6 +30,7 @@ const App = () => {
   const isWidgetVisible = useSelector(store => store.music.isWidgetVisible);
   const isMusicPaused = useSelector(store => store.music.isMusicPaused);
   const currentMusic = useSelector(store => store.music.currentMusic);
+  const userData = useSelector(store => store.user.userData);
 
   const musicData = useMemo(
     () => [
@@ -70,11 +71,11 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle="light-content" />
-      {/* {isWidgetVisible && (
+      {isWidgetVisible && userData && (
         <View style={styles.widget}>
           <Widget />
         </View>
-      )} */}
+      )}
       {currentMusic && (
         <AudioComponent paused={isMusicPaused} source={currentMusic?.src} />
       )}
@@ -89,7 +90,8 @@ const styles = RNStyles.create({
     zIndex: 999,
     left: 0,
     right: 0,
-    bottom: Platform.OS === 'ios' ? 80 : 0,
+    bottom: 80,
+    // Platform.OS === 'ios' ? 80 : 0
   },
 });
 
